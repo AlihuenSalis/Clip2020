@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Definicion de mi encabezado -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 y 2</title>
+
+    <!-- Links a recursos externos de paginas -->
+    <link rel="stylesheet" href="formatos.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <!-- Estilos locales -->
+      <style>
+        div {justify-content:center;
+          text-align:center;
+        }
+        h3 {text-align: left; margin: 5px; color: #F0C805;
+          font-family: 'Kaushan Script', cursive;
+          font-size: 3rem;}
+      </style>
+</head>
+
+<!-- Definiendo el cuerpo de mi web -->
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link" href="/pagina2.html"><i class="fas fa-sign-in-alt"></i> Siguiente Página</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
+          <a class="nav-link" style="cursor: pointer;" href="/pagina3.html"><i class="fas fa-door-open" ></i> Adivinanza</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Titulo sobre nuestra empresa -->
+  <div>
+    <img src="/img/cacao1.jpg" alt="mi Foto" style="width:400px;height:400px;margin:10px">
+    <h3>Quienes somos ?</h3>
+    <p>Somos una empresa familiar, Ubicada en la localidad de Ballesteros, provincia de Córdoba. Fundada en el año 2010. Si bien nuestra especialidad es el ¨Cacao¨ y sus productos derivados como chocolates, bombones, bolitas de licor, etc. Hace mas de 5
+      años que además del chocolate nos hemos especializado en pastelería. Trabajamos con mucho cariño para que nuestros pruductos sean siempre los mejores posibles y de sus agrados.
+      Esperamos su visita en todo momento. 
+    </p>
+    <p style="margin:10px"><b>Para más información ingresa a: </b>
+    <a href="https://www.facebook.com/cacao.amado.5/timeline?lst=1186357615%3A100023158056347%3A1599421607"><b>Nuestro perfil de Facebook</b></a>
+  </div>
+
+  <h2 class="sorteo">Alguno de nuestros productos y precios</h2>
+  <div class="divpag2">
+
+  <!-- Esto Es una tabla con nuestros productos -->
+  <table padding="10px 10px">
+
+    <tr>
+  
+      <th>Nombre</th>
+
+      <th>Tipo</th>
+  
+      <th>Precio</th>
+  
+    </tr>
+    <tr>
+      <td>Tarta de Coco</td>
+      <td>Tarta</td>
+      <td>$180</td>
+    </tr>
+    <tr>
+      <td>Pasta frola</td>
+      <td>Tarta</td>
+      <td>$150</td>
+    </tr>
+    <tr>
+      <td>Alfajores de Maicena</td>
+      <td>Alfajores</td>
+      <td>$150</td>
+    </tr>
+    <tr>
+      <td>Pastelitos de Membrillo</td>
+      <td>Pasteles</td>
+      <td>$150</td>
+    </tr>
+  </table>
+  </div>
+  <hr>
+
+  <!-- Slider con imagenes -->
+  <div class="w3-content w3-display-container">
+    <img class="mySlides" src="/img/cacao.JPG" style="height: 50%;width: 70%;">
+    <img class="mySlides" src="/img/img1.jpg" style="height: 50%;width: 48%;">
+    <img class="mySlides" src="/img/img2.jpg" style="height: 50%;width: 70%;">
+    <img class="mySlides" src="/img/img3.jpg" style="height: 50%;width: 40%;">
+    <img class="mySlides" src="/img/img4.jpg" style="height: 50%;width: 70%;">
+    <img class="mySlides" src="/img/img5.jpg" style="height: 50%;width: 50%;">
+    <img class="mySlides" src="/img/img6.jpg" style="height: 50%;width: 60%;">
+    <img class="mySlides" src="/img/img7.jpg" style="height: 50%;width: 60%;">
+    <img class="mySlides" src="/img/img8.jpg" style="height: 50%;width: 70%;">
+    <img class="mySlides" src="/img/img9.jpg" style="height: 50%;width: 50%;">
+
+    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+  </div>
+
+
+  <!-- Logica para la slider -->
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex-1].style.display = "block";  
+    }
+  </script>
+
+<!-- Separador -->
+  <hr>
+<!-- Titulo del sorteo -->
+  <h1 class="sorteo">!!! Tenemos un SORTEO !!!</h1>
+  <p style="margin:5px;text-align:center;">Al ser nuestra primera pagina Web, estamos realizando un sorteo.
+    <b>Para participar y conocer los premios, ingresa</b>
+    <a href="/pagina2.html"><b>Aquí.</b></a> 
+  </p>
+  
+</body>
+</html>

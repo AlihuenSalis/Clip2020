@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formatos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <title>Sorteo</title>
+    <style>
+        div {justify-content:center;
+          text-align:center;
+        }
+        h6{
+            margin:5px;
+        }
+        p{
+          color:red;
+          font-size: small;
+        }
+      </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" *ngIf="!isLogged">
+              <a class="nav-link" href="/pagina1.html"><i class="fas fa-fast-backward"></i> Página anterior</a>
+            </li>
+            <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
+              <a class="nav-link" style="cursor: pointer;" href="/pagina3.html"><i class="fas fa-door-open" ></i> adivinanza</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div>
+        <h2 class="titulo">SORTEO</h2>
+    </div>
+    <h6>Esta es la página del sorteo. En el mismo vamos a sortear este increible huevo de pascuas de 1kg. El mismo se llevará a cabo 
+      el ultimo Sabado del mes. Para participar, debes completar el siguiente
+      <a href="#formulario"><b>Formulario.</b></a>
+    </h6>
+    <img style="margin:5px;" src="/img/sorteo.JPG" alt="Computadora">
+
+
+    <!-- Este es el formulario -->
+    
+    <div class="divpag2">
+      <a name="formulario"></a>
+        <form class="form-register width=device-width" autocomplete="off" (ngSubmit)="guardar(formulario)" #formulario="ngForm">
+          <h4 class="tituloFormSorteo">Formulario para el sorteo</h4>
+          <p color="danger">Todos los campos de este formulario son obligatorios</p>
+          <label for="nombreParticipante" >Nombre</label>
+          <input class="form-control"
+                type="text"
+                ngModel
+                name="nombreParticipante"
+                id="nombreParticipante"
+                placeholder="Ingrese su Nombre"
+                required>
+
+          <label for="apellidoParticipante">Apellido</label>
+          <input class="form-control"
+                type="text"
+                ngModel
+                name="apellidoParticipante"
+                id="apellido"
+                placeholder="Ingrese su Apellido"
+                required>
+
+          <label for="emailParticipante" >Email</label>
+          <input class="form-control"
+                type="email"
+                ngModel
+                name="emailParticipante"
+                placeholder="Nombre@ejemplo.com"
+                required>
+          
+          <label for="apellidoUsuarioComplejo">Descripción</label>
+          <input class="form-control"
+                type="text"
+                name="descripcion"
+                id="descripcion"
+                placeholder="Ingrese una descripción"
+                required>
+          <button type="submit" class="btn btn-success my-1 btn-block"><i class="fas fa-plus"></i> Anotarse </button>
+        </form>
+      </div>
+      <hr>
+      <h3>Para Tener doble chance de ganar, resuelve esta
+        <a href="pagina3.html"><b>Adivinanza.</b></a>
+      </h3>
+</body>
+</html>
